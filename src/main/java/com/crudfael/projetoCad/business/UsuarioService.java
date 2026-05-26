@@ -38,8 +38,12 @@ public class UsuarioService {
                         usuario.getEmail() : usuarioEntity.getEmail())
                 .nome(usuario.getNome() != null ?
                         usuario.getNome() : usuarioEntity.getNome())
+                .cpf(usuario.getCpf() != null ?
+                        usuario.getCpf() : usuarioEntity.getCpf())
                 .id(usuarioEntity.getId())
                 .build();
+
+        repository.saveAndFlush(usuarioAtualizado);
     }
 
 }
