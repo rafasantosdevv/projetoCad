@@ -4,10 +4,10 @@ import lombok.*;
 
 @Getter
 @Setter
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Usuario")
+@NoArgsConstructor
+@Builder
+@Table(name = "usuario")
 @Entity
 
 public class Usuario {
@@ -15,14 +15,12 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "email", unique = true)
+    @Column(name = "Email", unique = true)
     private String email;
 
-    @Column(name = "nome", unique = false)
+    @Column(name = "Nome")
     private String nome;
 
-    @Column(name = "cpf", unique = true)
+    @Column(name = "CPF")
     private String cpf;
-
-    
 }

@@ -19,14 +19,19 @@ public class UsuarioController {
         return ResponseEntity.ok().build();
     }
     @GetMapping
-    public ResponseEntity<Usuario> buscarUserPorEmail(@RequestBody String email){
+    public ResponseEntity<Usuario> buscarUserPorEmail(@RequestParam String email){
         return ResponseEntity.ok(usuarioService.buscarUserPorEmail(email));
     }
     @DeleteMapping
-    public ResponseEntity<Void> deletarUserPorEmail(@RequestBody String email){
+    public ResponseEntity<Void> deletarUserPorEmail(@RequestParam String email){
         usuarioService.deletarUserPorEmail(email);
         return ResponseEntity.ok().build();
     }
 
-
+    @PutMapping
+    public ResponseEntity<Void> atualizarUserPorId(@RequestParam Integer id,
+                                                   @RequestBody Usuario usuario){
+        usuarioService.atualizarUsuarioPorId(id, usuario);
+        return ResponseEntity.ok().build();
+    }
 }
